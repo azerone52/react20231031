@@ -1,18 +1,15 @@
-import { MyElem, city } from "./components/MyElem";
-// default -> 중괄호 필요 없음, 아무거나 써도 가능
-import myAge from "./components/MyElem";
-import MyBox, { person, country } from "./components/MyBox";
-
+import MyBox, {
+  city,
+  country,
+  address as yourAddress,
+} from "./components/MyBox";
+import MyElem, { address as myAddress, email } from "./components/MyElem";
+// as로 named export 값을 import 할 때 별칭을 줄 수 있음
 function App() {
   return (
     <>
-      <h1>{city}</h1>
-      <h1>{myAge}</h1>
-      <MyBox />
-      <h1>
-        {person.age}, {person.name}
-      </h1>
-      <h1>{country}</h1>
+      <h1>{myAddress}</h1>
+      <h1>{yourAddress}</h1>
     </>
   );
 }
