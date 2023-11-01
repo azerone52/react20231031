@@ -1,21 +1,18 @@
-import {
-  MyBox,
-  MyContainer,
-  MyElem,
-  name,
-  address,
-  person,
-} from "./components/MyBox";
+import { MyElem, city } from "./components/MyElem";
+// default -> 중괄호 필요 없음, 아무거나 써도 가능
+import myAge from "./components/MyElem";
+import MyBox, { person, country } from "./components/MyBox";
 
 function App() {
-  console.log("name", name);
-  console.log("address", address);
-  console.log("person", person);
   return (
     <>
+      <h1>{city}</h1>
+      <h1>{myAge}</h1>
       <MyBox />
-      <MyElem />
-      <MyContainer />
+      <h1>
+        {person.age}, {person.name}
+      </h1>
+      <h1>{country}</h1>
     </>
   );
 }
