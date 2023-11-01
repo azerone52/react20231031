@@ -1,0 +1,12 @@
+.error{
+    background-color: red;
+    color: white;
+}
+
+.special {
+    border: 5px dotted gold;
+}
+
+.coffee{
+    text-decoration: underline;
+}
