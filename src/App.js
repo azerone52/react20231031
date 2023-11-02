@@ -1,117 +1,20 @@
-import {
-  Box,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Heading,
-  Button,
-  Flex,
-  SimpleGrid,
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
-} from "@chakra-ui/react";
+import { Center, Circle, Square } from "@chakra-ui/react";
+import { BellIcon, PhoneIcon } from "@chakra-ui/icons";
 
 function App() {
   return (
     <>
-      <SimpleGrid columns={1} gap={5}>
-        <Box>
-          {/*Table>Thead>Tr>Th*4>lorem1^^^Tbody>Tr*5>Td*4>lorem1 -> 안됨 */}
-          <Table>
-            <Thead>
-              <Tr>
-                <Th>Lorem.</Th>
-                <Th>Iste!</Th>
-                <Th>Unde!</Th>
-                <Th>Obcaecati!</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              <Tr>
-                <Td>Lorem.</Td>
-                <Td>Saepe.</Td>
-                <Td>Quibusdam!</Td>
-                <Td>Nam!</Td>
-              </Tr>
-              <Tr>
-                <Td>Lorem.</Td>
-                <Td>Minima!</Td>
-                <Td>Accusamus!</Td>
-                <Td>Impedit?</Td>
-              </Tr>
-              <Tr>
-                <Td>Lorem.</Td>
-                <Td>Rem.</Td>
-                <Td>Perferendis.</Td>
-                <Td>Tenetur?</Td>
-              </Tr>
-              <Tr>
-                <Td>Lorem.</Td>
-                <Td>Odio?</Td>
-                <Td>Quis.</Td>
-                <Td>Est!</Td>
-              </Tr>
-              <Tr>
-                <Td>Lorem.</Td>
-                <Td>Nesciunt?</Td>
-                <Td>Rerum.</Td>
-                <Td>Velit.</Td>
-              </Tr>
-            </Tbody>
-          </Table>
-        </Box>
+      <Center bg={"red.100"} h={"200px"}>
+        <Square bg={"blue.100"} w={"100px"} h={"100px"}>
+          <PhoneIcon />
+        </Square>
+      </Center>
 
-        {/*Box>Table[variant=striped]>Thead>Tr>Th*4>lorem1^^^Tbody*1>(Tr*5)>(Td*4)>lorem1*/}
-        <Box>
-          <Table variant="striped" colorScheme="red" size={"lg"}>
-            <Thead>
-              <Tr>
-                <Th>Lorem.</Th>
-                <Th>Perferendis.</Th>
-                <Th>Nesciunt?</Th>
-                <Th>Deleniti!</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              <Tr>
-                <Td>Lorem.</Td>
-                <Td>Libero!</Td>
-                <Td>Sit!</Td>
-                <Td>Quibusdam.</Td>
-              </Tr>
-              <Tr>
-                <Td>Lorem.</Td>
-                <Td>Laboriosam.</Td>
-                <Td>Dolore.</Td>
-                <Td>Ex.</Td>
-              </Tr>
-              <Tr>
-                <Td>Lorem.</Td>
-                <Td>Perferendis!</Td>
-                <Td>Unde.</Td>
-                <Td>Aspernatur.</Td>
-              </Tr>
-              <Tr>
-                <Td>Lorem.</Td>
-                <Td>Repudiandae.</Td>
-                <Td>Nam?</Td>
-                <Td>Assumenda?</Td>
-              </Tr>
-              <Tr>
-                <Td>Lorem.</Td>
-                <Td>Atque?</Td>
-                <Td>Obcaecati.</Td>
-                <Td>Aliquam.</Td>
-              </Tr>
-            </Tbody>
-          </Table>
-        </Box>
-      </SimpleGrid>
+      <Center bg={"red.200"} h={"200px"}>
+        <Circle bg={"blue.200"} w={"100px"} h={"100px"}>
+          <BellIcon />
+        </Circle>
+      </Center>
     </>
   );
 }
