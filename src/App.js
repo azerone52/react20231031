@@ -1,34 +1,60 @@
-import { Button } from "@chakra-ui/react";
-import { ArrowRightIcon, EmailIcon } from "@chakra-ui/icons";
+import React from "react";
+import {
+  Box,
+  Center,
+  Checkbox,
+  CheckboxGroup,
+  Flex,
+  FormControl,
+  FormHelperText,
+  FormLabel,
+  Input,
+  Radio,
+  RadioGroup,
+} from "@chakra-ui/react";
 
-function App() {
+function App(props) {
   return (
-    <>
-      <Button colorScheme="blue">Lorem.</Button>
-      <Button colorScheme="red">Quasi.</Button>
-      <Button colorScheme="yellow">Exercitationem.</Button>
-      <Button colorScheme="orange">Eligendi?</Button>
-      <Button bgColor={"orange.300"}>Temporibus.</Button>
-      <Button colorScheme="teal" size={"sm"}>
-        Modi.
-      </Button>
-      <Button colorScheme="facebook" size={"lg"}>
-        Vel?
-      </Button>
-      <Button colorScheme="telegram" variant={"outline"}>
-        Debitis!
-      </Button>
-      <Button colorScheme="orange" variant={"ghost"}>
-        Molestiae.
-      </Button>
-      <Button variant={"link"}>Quam?</Button>
-      <Button leftIcon={<EmailIcon />}>Similique.</Button>
-      <Button rightIcon={<ArrowRightIcon />}>Quidem.</Button>
-      <Button isLoading>Commodi!</Button>
-      <Button isLoading loadingText={"전송중"}>
-        Ab!
-      </Button>
-    </>
+    <div>
+      <Center>
+        <Box w={"480px"}>
+          <FormControl>
+            <FormLabel>이름</FormLabel>
+            <Input />
+            <FormHelperText>띄어쓰기 없이 입력하세요</FormHelperText>
+          </FormControl>
+        </Box>
+      </Center>
+      <Center mt={5}>
+        <Box w={"480px"}>
+          <FormControl>
+            <FormLabel>하나만 선택하세요 </FormLabel>
+            <RadioGroup>
+              <Flex gap={5}>
+                <Radio value="value1">Lorem1.</Radio>
+                <Radio value="value2">Lorem2.</Radio>
+                <Radio value="value3">Lorem3.</Radio>
+                <Radio value="value4">Lorem4.</Radio>
+              </Flex>
+            </RadioGroup>
+          </FormControl>
+        </Box>
+      </Center>
+
+      <Center>
+        <Box w={"480px"}>
+          <FormControl>
+            <CheckboxGroup>
+              <Flex gap={5}>
+                <Checkbox colorScheme="blue">Lorem.</Checkbox>
+                <Checkbox colorScheme="orange">Ipsam!</Checkbox>
+                <Checkbox colorScheme="purple">Doloribus.</Checkbox>
+              </Flex>
+            </CheckboxGroup>
+          </FormControl>
+        </Box>
+      </Center>
+    </div>
   );
 }
 
