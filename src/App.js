@@ -1,29 +1,57 @@
 import React from "react";
-import { Box, Image } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Image,
+  Input,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+} from "@chakra-ui/react";
+import { ChevronDownIcon, DownloadIcon } from "@chakra-ui/icons";
 
 function App(props) {
   return (
-    <div>
-      <Box w={"480px"}>
-        <Image src="https://bit.ly/dan-abramov" />
-      </Box>
-      <Box>
-        <Image boxSize={"100px"} src="https://bit.ly/dan-abramov" />
-      </Box>
-      <Box>
-        <Image boxSize={"200px"} src="https://bit.ly/dan-abramov" />
-      </Box>
-      <Box>
-        <Image
-          borderRadius={"full"}
-          boxSize={"100px"}
-          src="https://bit.ly/dan-abramov"
-        />
-      </Box>
-      <Box>
-        <Image src="abcd.jpg" fallbackSrc="https://via.placeholder.com/150" />
-      </Box>
-    </div>
+    <Box
+      bg={"gray.100"}
+      px={{ base: "0px", md: "70px", lg: "120px", xl: "180px" }}
+      py="8px"
+    >
+      <Flex justify={"space-between"}>
+        <Flex gap={"7px"} align={"center"}>
+          <Box fontWeight={"bold"}>Navbar</Box>
+          <Button variant={"ghost"}>Home</Button>
+          <Button variant={"ghost"}>Link</Button>
+          <Menu>
+            <MenuButton
+              variant={"ghost"}
+              as={Button}
+              rightIcon={<ChevronDownIcon />}
+            >
+              Dropdown
+            </MenuButton>
+            <MenuList>
+              <MenuItem>Download</MenuItem>
+              <MenuItem>Create a Copy</MenuItem>
+              <MenuItem>Mark as Draft</MenuItem>
+              <MenuItem>Delete</MenuItem>
+              <MenuItem>Attend a Workshop</MenuItem>
+            </MenuList>
+          </Menu>
+          <Button variant={"ghost"} isDisabled>
+            Disabled
+          </Button>
+        </Flex>
+        <Flex gap={"7px"} align={"center"}>
+          <Input size={"sm"} bg={"white"} color={"gray.400"} />
+          <Button size={"sm"} variant={"outline"} colorScheme="green">
+            Search
+          </Button>
+        </Flex>
+      </Flex>
+    </Box>
   );
 }
 
