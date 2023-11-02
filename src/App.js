@@ -1,59 +1,20 @@
 import React from "react";
-import {
-  Box,
-  Center,
-  Checkbox,
-  CheckboxGroup,
-  Flex,
-  FormControl,
-  FormHelperText,
-  FormLabel,
-  Input,
-  Radio,
-  RadioGroup,
-} from "@chakra-ui/react";
+import { Box, FormControl, Select } from "@chakra-ui/react";
 
 function App(props) {
   return (
     <div>
-      <Center>
-        <Box w={"480px"}>
-          <FormControl>
-            <FormLabel>이름</FormLabel>
-            <Input />
-            <FormHelperText>띄어쓰기 없이 입력하세요</FormHelperText>
-          </FormControl>
-        </Box>
-      </Center>
-      <Center mt={5}>
-        <Box w={"480px"}>
-          <FormControl>
-            <FormLabel>하나만 선택하세요 </FormLabel>
-            <RadioGroup>
-              <Flex gap={5}>
-                <Radio value="value1">Lorem1.</Radio>
-                <Radio value="value2">Lorem2.</Radio>
-                <Radio value="value3">Lorem3.</Radio>
-                <Radio value="value4">Lorem4.</Radio>
-              </Flex>
-            </RadioGroup>
-          </FormControl>
-        </Box>
-      </Center>
-
-      <Center>
-        <Box w={"480px"}>
-          <FormControl>
-            <CheckboxGroup>
-              <Flex gap={5}>
-                <Checkbox colorScheme="blue">Lorem.</Checkbox>
-                <Checkbox colorScheme="orange">Ipsam!</Checkbox>
-                <Checkbox colorScheme="purple">Doloribus.</Checkbox>
-              </Flex>
-            </CheckboxGroup>
-          </FormControl>
-        </Box>
-      </Center>
+      <Box w={"480px"}>
+        <FormControl>
+          <Select placeholder="선택하세요." multiple h={"120px"}>
+            <option value="value1">Lorem.</option>
+            <option value="value2">Sed.</option>
+            <option value="value3">Fuga.</option>
+            <option value="value4">Aliquid?</option>
+            <option value="value5">Voluptate!</option>
+          </Select>
+        </FormControl>
+      </Box>
     </div>
   );
 }
