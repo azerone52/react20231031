@@ -1,25 +1,21 @@
-import { Button, Flex } from "@chakra-ui/react";
+import { Card, CardBody } from "@chakra-ui/react";
 
-function MyLink({ to, children }) {
+function MyBox({ color, bg, children }) {
   return (
     <>
-      <Flex>
-        <Button m="10px" variant={"link"}>
-          <a href={to}>{children}</a>
-        </Button>
-        <Button as={"a"} href={to}>
-          {children}
-        </Button>
-      </Flex>
+      <Card color={color} bg={bg}>
+        <CardBody>{children}</CardBody>
+      </Card>
     </>
   );
 }
-
-function App() {
+function App(props) {
   return (
     <>
-      <MyLink to={"https://www.naver.com"}>naver로</MyLink>
-      <MyLink to={"https://www.daum.net"}>daum으로</MyLink>
+      <MyBox color={"pink.200"} bg={"blue.50"}>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui,
+        repudiandae!
+      </MyBox>
     </>
   );
 }
