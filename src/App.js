@@ -22,6 +22,10 @@ function App(props) {
       >
         Button3
       </MyComp>
+      {/*중괄호 없는 arrow function=> 실행문이 바로 실행되고 그게 리턴임*/}
+      <MyComp executeClick={() => console.log("arrow function 실행 333")}>
+        Button4
+      </MyComp>
     </div>
   );
 }
