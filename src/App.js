@@ -1,31 +1,27 @@
 import { Button } from "@chakra-ui/react";
 
-function MyComp({ children, executeClick }) {
-  return <Button onClick={executeClick}>{children}</Button>;
-}
-
 function App(props) {
-  function func1() {
-    console.log("func1 실행");
+  // 함수명 작성 관습
+  // handle이벤트명
+  // someFunctionName=>handleClick
+
+  // 특별한 일이 없으면 컴포넌트 안에서 작성하도록 하자
+  function someFunctionName() {
+    console.log("second");
   }
-  let func2 = () => {
-    console.log("arrow function 실행 11");
-  };
+  function handleMouseEnter() {
+    console.log("third");
+  }
+  function handleMouseLeave() {
+    console.log("out");
+  }
   return (
     <div>
-      <MyComp executeClick={func1}>Button1</MyComp>
-      <MyComp executeClick={func2}>Button2</MyComp>
-      <MyComp
-        executeClick={() => {
-          console.log("arrow function 실행 22");
-        }}
-      >
-        Button3
-      </MyComp>
-      {/*중괄호 없는 arrow function=> 실행문이 바로 실행되고 그게 리턴임*/}
-      <MyComp executeClick={() => console.log("arrow function 실행 333")}>
-        Button4
-      </MyComp>
+      <Button onClick={() => console.log("first")}>버튼1</Button>
+      <Button onClick={someFunctionName}>버튼2</Button>
+      <Button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        버튼3
+      </Button>
     </div>
   );
 }
