@@ -1,22 +1,23 @@
-import { useState } from "react";
-import { Button } from "@chakra-ui/react";
+import React from "react";
 
 function App(props) {
-  const [text, setText] = useState("hello");
+  // HOOK : use 로 시작하는 함수
+  // hook은 컴포넌트 상단에 작성해야함
+  // 조건문이나, 반복문, 중첩된 함수안에 작성하면 안됨
 
-  console.log(text);
-
-  function handleButtonClick() {
-    // text 라는 state 값변경
-    setText("변경했습니다.");
+  if (true) {
+    // hook 호출 코드 작성 불가
   }
 
-  return (
-    <div>
-      <Button onClick={handleButtonClick}>상태 변경!</Button>
-      <p>{text}</p>
-    </div>
-  );
+  for (let i = 0; i < 3; i++) {
+    // hook 호출 코드 작성 불가
+  }
+
+  function handle() {
+    // hook 호출 코드 작성 불가
+  }
+
+  return <div></div>;
 }
 
 export default App;
