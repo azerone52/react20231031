@@ -1,29 +1,23 @@
 import React, { useState } from "react";
-import { Box, Input, Text } from "@chakra-ui/react";
+import { Box, Button, Input, Text } from "@chakra-ui/react";
 
 function App(props) {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  const [number, setNumber] = useState(0);
 
-  function handelUserNameChange(e) {
-    setUsername(e.target.value);
-  }
+  const index = number % 3;
 
   return (
     <div>
-      <Box>
-        <Input type="text" value={username} onChange={handelUserNameChange} />
+      <Button onClick={() => setNumber(number + 1)}>다음</Button>
+      <Box borderWidth={"3px"} borderColor={index == 0 ? "blue" : "black"}>
+        <Text>message1</Text>
       </Box>
-      <Box>
-        <Input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+      <Box borderWidth={"3px"} borderColor={index == 1 ? "blue" : "black"}>
+        <Text>message2</Text>
       </Box>
-      <Text>
-        {username}의 email은 {email} 입니다.
-      </Text>
+      <Box borderWidth={"3px"} borderColor={index == 2 ? "blue" : "black"}>
+        <Text>message3</Text>
+      </Box>
     </div>
   );
 }
