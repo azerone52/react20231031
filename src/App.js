@@ -5,15 +5,6 @@ function App() {
   const [message, setMessage] = useState("");
   const [obj, setObj] = useState({ message: "" });
 
-  function handleObjectMessageChange(e) {
-    // const newObj = { ...obj };
-    // newObj.message = e.target.value;
-    //
-    // setObj(newObj);
-
-    setObj({ ...obj, message: e.target.value });
-  }
-
   return (
     <>
       <Box>
@@ -21,7 +12,17 @@ function App() {
         <Text>{message}</Text>
       </Box>
       <Box>
-        <Input value={obj.message} onChange={handleObjectMessageChange} />
+        <Input
+          value={obj.message}
+          onChange={function handleObjectMessageChange(e) {
+            // const newObj = { ...obj };
+            // newObj.message = e.target.value;
+            //
+            // setObj(newObj);
+
+            setObj({ ...obj, message: e.target.value });
+          }}
+        />
         <Text>{obj.message}</Text>
       </Box>
     </>
