@@ -13,18 +13,20 @@ function App(props) {
   console.log("id", nextId);
   console.log(items);
   function handleDoneButton(id) {
-    updateItems((draft) => {
-      for (let i = 0; i < draft.length; i++) {
-        if (draft[i].id === id) {
-          draft[i].done = true;
-        }
-      }
-    });
-    // for (let i = 0; i < items.length; i++) {
-    //   if (items[i].id == id) {
-    //     items[i].done = true;
+    // updateItems((draft) => {
+    //   for (let i = 0; i < draft.length; i++) {
+    //     if (draft[i].id === id) {
+    //       draft[i].done = true;
+    //     }
     //   }
-    // }
+    // });
+
+    updateItems((draft) => {
+      draft.find((elem) => elem.id === id).done = true;
+    });
+
+    // const target = items.find((elem)=>elem.id===id);
+    // target.done = true;
   }
 
   return (
