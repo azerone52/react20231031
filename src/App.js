@@ -6,16 +6,27 @@ function App(props) {
   const [employeeId, setEmployeeId] = useState(0);
   const [employee, setEmployee] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [employeeList, setEmployeeList] = useState([1]);
 
   useEffect(() => {
     setIsLoading(true);
     axios
       .get("/api/main1/sub5?id=" + employeeId)
       .then((response) => response.data)
-      .then((data) => setEmployee(data))
+      .then((data) => {
+        console.log("data", data);
+        console.log("data.responseEntity", data.responseEntity);
+        console.log("data.employeeList", data.employeeList);
+      })
+      // .then((data) => {
+      //   setEmployee(data.responseEntity);
+      //   setEmployeeList(data.employeeList);
+      // })
       .catch((error) => setEmployee(null))
       .finally(setIsLoading(false));
   }, [employeeId]);
+
+  console.log(employeeList);
   return (
     // 직원 번호를 선택하면 직원의 이름이 출력
     // /api/main1/sub5?id=5
@@ -24,11 +35,9 @@ function App(props) {
         placeholder="직원 번호를 선택하세요"
         onChange={(e) => setEmployeeId(e.target.value)}
       >
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
+        {employeeList.map((e) => (
+          <option value={e}>{e}</option>
+        ))}
       </Select>
       <Box>
         {isLoading && <Spinner />}
