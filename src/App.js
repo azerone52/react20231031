@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { Box, Select, Text } from "@chakra-ui/react";
+import { Box, Select, Spinner, Text } from "@chakra-ui/react";
 import axios from "axios";
 
 function App(props) {
   const [customerId, setCustomerId] = useState(0);
   const [customer, setCustomer] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     axios
       .get("api/main1/sub4?id=" + customerId)
       .then((response) => response.data)
       .then((data) => setCustomer(data))
-      .catch((err) => console.log(err))
-      .finally(() => console.log("끝"));
+      .catch((err) => setCustomer(null))
+      .finally(() => setLoading(false));
   }, [customerId]);
   return (
     <div>
@@ -33,7 +35,16 @@ function App(props) {
         <option value="10">10</option>
       </Select>
       <Box>
-        <Text>고객 이름: {customer.customerName}</Text>
+        {loading && <Spinner />}
+        {loading || (
+          <Text>
+            {customer != null
+              ? "고객이름: " + customer.customerName
+              : "고객이 없습니다"}
+          </Text>
+        )}
+        {/*{customer == null && <Text>조회한 고객이 없습니다.</Text>}*/}
+        {/*{customer != null && <Text>{customer.customerName}</Text>}*/}
       </Box>
     </div>
   );
