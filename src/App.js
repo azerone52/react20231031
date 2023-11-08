@@ -1,50 +1,52 @@
 import React, { useEffect, useState } from "react";
-import { Box, Select, Spinner, Text } from "@chakra-ui/react";
-import axios from "axios";
+import { Box, Button, Checkbox, Text } from "@chakra-ui/react";
+
+function MyComp({ color }) {
+  const [number, setNumber] = useState(0);
+
+  useEffect(() => {
+    console.log(color + " : initial render");
+  }, []);
+
+  console.log(color + " : re render");
+  return (
+    <Box borderWidth={"10px"} borderColor={color}>
+      <Button onClick={() => setNumber(number + 1)}>증가</Button>
+      <Text>{number}</Text>
+    </Box>
+  );
+}
 
 function App(props) {
-  const [customerIdList, setCustomerIdList] = useState([]);
-  const [customerId, setCustomerId] = useState(0);
-  const [customer, setCustomer] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    //고객 번호들 가져오기
-    axios
-      .get("/api/main1/sub6")
-      .then((response) => setCustomerIdList(response.data));
-  }, []);
-  useEffect(() => {
-    setLoading(true);
-    axios
-      .get("api/main1/sub4?id=" + customerId)
-      .then((response) => response.data)
-      .then((data) => setCustomer(data))
-      .catch((err) => setCustomer(null))
-      .finally(() => setLoading(false));
-  }, [customerId]);
+  // 부모가 렌더링 될 때 자식도 렌더링 됨
+  const [number, setNumber] = useState(0);
+  const [secondToggle, setSecondToggle] = useState(true);
+  const [goldToggle, setGoldToggle] = useState(true);
+  console.log("부모 re render");
   return (
     <div>
-      <Select
-        placeholder="고객 번호를 선택하세요"
-        onChange={(e) => setCustomerId(e.target.value)}
-      >
-        {/*option[value=$]{$}*10*/}
-        {customerIdList.map((id) => (
-          <option value={id}>{id}</option>
-        ))}
-      </Select>
       <Box>
-        {loading && <Spinner />}
-        {loading || (
-          <Text>
-            {customer != null
-              ? "고객이름: " + customer.customerName
-              : "고객이 없습니다"}
-          </Text>
-        )}
-        {/*{customer == null && <Text>조회한 고객이 없습니다.</Text>}*/}
-        {/*{customer != null && <Text>{customer.customerName}</Text>}*/}
+        <Text>부모</Text>
+        <Button onClick={() => setNumber(number + 1)}>증가</Button>
+        <Text>{number}</Text>
+        <Checkbox
+          defaultChecked={true}
+          onChange={(e) => setSecondToggle(e.target.checked)}
+        ></Checkbox>
+        파란 박스 토글
+        <Checkbox
+          defaultChecked={true}
+          onChange={(e) => setGoldToggle(e.target.checked)}
+        ></Checkbox>
+        골드 박스 토글
+      </Box>
+      <Box mt={5}>
+        <Text>자식들</Text>
+        <MyComp color={"red"} />
+        {secondToggle && <MyComp color={"blue"} />}
+      </Box>
+      <Box sx={{ display: goldToggle ? "block" : "none" }}>
+        <MyComp color={"gold"} />
       </Box>
     </div>
   );
